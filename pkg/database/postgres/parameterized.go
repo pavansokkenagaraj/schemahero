@@ -183,7 +183,7 @@ func maybeParseParameterizedColumnType(requestedType string) (string, error) {
 		} else if len(precisionOnlyMatchGroups) == 2 {
 			columnType = fmt.Sprintf("numeric (%s)", precisionOnlyMatchGroups[1])
 		}
-	}
+	} 
 
 	return columnType, nil
 }

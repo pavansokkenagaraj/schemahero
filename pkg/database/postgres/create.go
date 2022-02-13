@@ -45,6 +45,8 @@ func SeedDataStatements(tableName string, tableSchema *schemasv1alpha4.Postgresq
 func CreateTableStatements(tableName string, tableSchema *schemasv1alpha4.PostgresqlTableSchema) ([]string, error) {
 	columns := []string{}
 	for _, desiredColumn := range tableSchema.Columns {
+
+		// TODO: check if the type is a ENUM
 		columnFields, err := columnAsInsert(desiredColumn)
 		if err != nil {
 			return nil, err

@@ -49,6 +49,10 @@ func schemaColumnToColumn(schemaColumn *schemasv1alpha4.PostgresqlTableColumn) (
 		return nil, err
 	}
 
+	if isStaticColumnType(requestedType){
+		return staticSchemaColumnToColumn(schemaColumn)		
+	}
+
 	if columnType != "" {
 		column.DataType = columnType
 		return column, nil

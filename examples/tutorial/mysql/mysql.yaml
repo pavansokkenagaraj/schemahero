@@ -1,0 +1,16 @@
+---
+# Source: postgresql/templates/secrets.yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: mysql-secret
+  namespace: schemahero-tutorial
+  labels:
+    app: mysql
+type: Opaque
+data:
+  mysql-username: cm9vdAo=
+  mysql-password: cGdqcjhDZXJZVA==
+  mysql-root-password: SWI4ZlU0SjRpYw==
+  uri: cm9vdDpJYjhmVTRKNGljQGxvY2FsaG9zdDozMzA2L2dyb2NlcnlkYgo=
+  # uri: mysql://root:Ib8fU4J4ic@localhost:3306/grocerydb

@@ -1,0 +1,13 @@
+apiVersion: databases.schemahero.io/v1alpha4
+kind: Database
+metadata:
+  name: grocerydb
+  namespace: schemahero-tutorial
+spec:
+  connection:
+    mysql:
+      uri:
+        valueFrom:
+          secretKeyRef:
+            name: mysql-secret
+            key: uri

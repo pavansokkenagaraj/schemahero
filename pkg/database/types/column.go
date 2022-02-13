@@ -29,6 +29,7 @@ type Column struct {
 	Charset       string
 	Collation     string
 	IsStatic      bool
+	StaticDataType string
 }
 
 func ColumnToMysqlSchemaColumn(column *Column) (*schemasv1alpha4.MysqlTableColumn, error) {

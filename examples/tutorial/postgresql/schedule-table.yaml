@@ -1,0 +1,41 @@
+apiVersion: schemas.schemahero.io/v1alpha4
+kind: Table
+metadata:
+  name: schedule
+  namespace: schemahero-tutorial
+spec:
+  database: airlinedb
+  name: schedule
+  schema:
+    postgres:
+      primaryKey: [flight_num]
+      foreignKeys:
+        - columns:
+            - origin
+          references:
+            table: airport
+            columns:
+              - code
+        - columns:
+          - destination
+          references:
+            table: airport
+            columns:
+              - code
+      columns:
+        - name: flight_num
+          type: int
+        - name: origin
+          type: char(4)
+          constraints:
+            notNull: true
+        - name: destination
+          type: char(4)
+          constraints:
+            notNull: true
+        - name: departure_time
+          type: time
+        - name: arrival_time
+          type: time
+        - name: duration
+          type: int

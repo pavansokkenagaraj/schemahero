@@ -7,6 +7,10 @@ import (
 	"strings"
 )
 
+const(
+	strENUM = "ENUM"
+)
+
 var unparameterizedColumnTypes = []string{
 	"date",
 	"datetime",
@@ -19,6 +23,7 @@ var unparameterizedColumnTypes = []string{
 	"longtext",
 	"blob",
 	"text",
+	strENUM,
 }
 
 func isParameterizedColumnType(requestedType string) bool {
@@ -49,9 +54,7 @@ func maybeParseParameterizedColumnType(requestedType string) (string, error) {
 			columnType = fmt.Sprintf("varchar (%d)", max)
 		}
 	} else if strings.HasPrefix(requestedType, "char") {
-		if strings.Contains(requestedType, "character") {
-			requestedType = strings.Replace(requestedType, "character", "char", -1)
-		}
+		requestedType = strings.Replace(requestedType, "character", "char", -1)
 
 		r := regexp.MustCompile(`char\s*\((?P<max>\d*)\)`)
 
@@ -271,6 +274,13 @@ func maybeParseParameterizedColumnType(requestedType string) (string, error) {
 			}
 			columnType = fmt.Sprintf("text (%d)", max)
 		}
+	} else if strings.HasPrefix(requestedType, strENUM) {
+		columnType = strENUM
+
+		//  strip all spaces
+		requestedType = strings.Replace(requestedType, " ", "", -1)
+
+		
 	}
 
 	return columnType, nil

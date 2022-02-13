@@ -11,7 +11,8 @@ metadata:
 type: Opaque
 data:
   postgresql-password: "cGFzc3dvcmQ="
-  uri: cG9zdGdyZXNxbDovL2FpcmxpbmVkYi11c2VyOnBhc3N3b3JkQHBvc3RncmVzcWw6NTQzMi9haXJsaW5lZGI=
+  uri: cG9zdGdyZXNxbDovL2FpcmxpbmVkYi11c2VyOnBhc3N3b3JkQGxvY2FsaG9zdDo1NDMyL2FpcmxpbmVkYg==
+  # uri: cG9zdGdyZXNxbDovL2FpcmxpbmVkYi11c2VyOnBhc3N3b3JkQHBvc3RncmVzcWw6NTQzMi9haXJsaW5lZGI=
 ---
 # Source: postgresql/templates/svc-headless.yaml
 apiVersion: v1

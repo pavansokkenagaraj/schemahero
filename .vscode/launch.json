@@ -1,0 +1,42 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "SchemaHero CLi",
+            "type": "go",
+            "request": "launch",
+            "mode": "auto",
+            "program": "/Users/sokke/go/src/github.com/schemahero/schemahero/cmd/kubectl-schemahero",
+            "args": ["install"]
+        },
+        {
+            "name": "SchemaHero Database Manager",
+            "type": "go",
+            "request": "launch",
+            "mode": "auto",
+            "program": "/Users/sokke/go/src/github.com/schemahero/schemahero/cmd/manager",
+            "args": ["run", "--enable-database-controller", "--manager-tag", "0.12.6"],
+        },{
+            "name": "SchemaHero Table Manager",
+            "type": "go",
+            "request": "launch",
+            "mode": "auto",
+            "program": "/Users/sokke/go/src/github.com/schemahero/schemahero/cmd/manager",
+            "args": [
+                "run", 
+                "--enable-database-controller",
+                "--log-level", "debug",
+                "--manager-tag", "0.12.6",
+                "--namespace", "schemahero-tutorial",
+                "--database-name", "airlinedb",
+            ],
+            "env": {
+                "manager-tag":"0.12.6"
+            }
+        },
+        
+    ]
+}
